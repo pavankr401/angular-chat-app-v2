@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+  <div class="col-md-8">
+
+    <h5 class="text-muted mb-3">My Connections</h5>
+
+    <div *ngIf="isLoading" class="text-center my-4">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <div *ngIf="!isLoading && friends.length === 0" class="text-center p-4 bg-light rounded">
+      <p class="text-muted mb-0">You haven't added any friends yet.</p>
+    </div>
+
+    <ul *ngIf="!isLoading && friends.length > 0" class="list-group shadow-sm">
+      <li *ngFor="let friend of friends"
+          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+          style="cursor: pointer;"
+          (click)="openChat(friend)">
+
+        <div class="d-flex align-items-center">
+          <div class="bg-secondary text-white rounded-circle d-flex justify-content-center align-items-center me-3"
+               style="width: 40px; height: 40px; font-weight: bold;">
+            {{ friend.username.charAt(0).toUpperCase() }}
+          </div>
+
+          <div>
+            <h6 class="mb-0 fw-bold">{{ friend.username }}</h6>
+            <small class="text-muted">{{ friend.email }}</small>
+          </div>
+        </div>
+
+        <i class="bi bi-chat-dots text-primary fs-5"></i>
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+<app-popup *ngIf="selectedConversation"
+           [title]="popupTitle"
+           (closed)="closeChat()">
+
+  <app-conversation-box [conversation]="selectedConversation">
+  </app-conversation-box>
+
+</app-popup>

@@ -1,0 +1,40 @@
+<div class="p-3">
+
+  <div class="mb-3">
+    <label class="form-label fw-bold">Group Name</label>
+    <input type="text" class="form-control" placeholder="e.g. Project Team" [(ngModel)]="groupName">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label fw-bold">Add Members</label>
+
+    <div class="list-group" style="max-height: 250px; overflow-y: auto;">
+      <button *ngFor="let friend of friends"
+              type="button"
+              class="list-group-item list-group-item-action d-flex align-items-center"
+              (click)="toggleSelection(friend.id)"
+              [class.active]="selectedMemberIds.has(friend.id)">
+
+        <i class="bi me-3"
+           [class.bi-check-circle-fill]="selectedMemberIds.has(friend.id)"
+           [class.bi-circle]="!selectedMemberIds.has(friend.id)"></i>
+
+        {{ friend.username }}
+      </button>
+    </div>
+
+    <small class="text-muted" *ngIf="friends.length === 0">No friends to add.</small>
+  </div>
+
+  <div class="d-flex justify-content-end gap-2 mt-4">
+    <button class="btn btn-secondary" (click)="cancelled.emit()">Cancel</button>
+    <button class="btn btn-success"
+            (click)="create()"
+            [disabled]="!groupName || selectedMemberIds.size === 0 || isLoading">
+
+      <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-1"></span>
+      Create Group
+    </button>
+  </div>
+
+</div>

@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <div class="card shadow-sm">
+    <div class="card-body">
+
+      <div class="d-flex align-items-center mb-3 border-bottom pb-3">
+
+        <button class="btn btn-outline-secondary btn-sm me-3" (click)="goBack()">
+          <i class="bi bi-arrow-left"></i> Back
+        </button>
+
+        <h4 class="mb-0">Manage Connections</h4>
+
+      </div>
+
+      <app-tab-strip [tabs]="friendTabs"
+                     (tabSelected)="onTabChange($event)">
+      </app-tab-strip>
+
+      <div class="mt-4">
+        <app-add-friend *ngIf="activeTabIndex === 0"></app-add-friend>
+        <app-friend-requests *ngIf="activeTabIndex === 1"></app-friend-requests>
+        <app-view-friends *ngIf="activeTabIndex === 2"></app-view-friends>
+      </div>
+
+    </div>
+  </div>
+</div>

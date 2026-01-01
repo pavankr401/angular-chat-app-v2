@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+  <div class="col-md-8">
+
+    <h5 class="text-muted mb-3">Pending Invitations</h5>
+
+    <div *ngIf="isLoading" class="text-center my-4">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <div *ngIf="!isLoading && requests.length === 0" class="text-center p-4 bg-light rounded">
+      <p class="text-muted mb-0">No pending requests.</p>
+    </div>
+
+    <ul *ngIf="!isLoading && requests.length > 0" class="list-group shadow-sm">
+      <li *ngFor="let req of requests" class="list-group-item d-flex justify-content-between align-items-center">
+
+        <div>
+          <h6 class="mb-0 fw-bold">{{ req.username }}</h6>
+          <small class="text-muted">{{ req.email }}</small>
+        </div>
+
+        <div>
+          <button class="btn btn-sm btn-success me-2" (click)="onRespond(req.id, true)">
+            Accept
+          </button>
+          <button class="btn btn-sm btn-outline-danger" (click)="onRespond(req.id, false)">
+            Reject
+          </button>
+        </div>
+
+      </li>
+    </ul>
+
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container" style="max-width: 400px; margin-top: 50px;">
+  <h2>Register</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label>Username</label>
+      <input type="text" [(ngModel)]="user.username" name="username" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Email</label>
+      <input type="email" [(ngModel)]="user.email" name="email" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Password</label>
+      <input type="password" [(ngModel)]="user.password" name="password" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+    <a routerLink="/login" class="btn btn-link">Already have an account?</a>
+  </form>
+</div>

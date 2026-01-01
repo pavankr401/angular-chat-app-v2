@@ -1,0 +1,33 @@
+<div class="list-group list-group-flush">
+  <button *ngFor="let chat of conversations"
+          (click)="selectChat(chat)"
+          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+
+    <div class="d-flex align-items-center">
+      <div class="rounded-circle bg-secondary text-white d-flex justify-content-center align-items-center me-3"
+           style="width: 40px; height: 40px; font-weight: bold; font-size: 0.9rem;">
+        {{ getAvatarLetter(chat) }}
+      </div>
+
+      <div>
+        <div class="fw-bold">{{ getChatName(chat) }}</div>
+
+        <small class="text-muted text-truncate d-block" style="max-width: 150px;">
+          <span *ngIf="chat.lastMessagePreview">
+            <span class="fw-bold text-dark">{{ getLastMessagePrefix(chat) }}</span>{{ chat.lastMessagePreview }}
+          </span>
+          <span *ngIf="!chat.lastMessagePreview">No messages yet</span>
+        </small>
+      </div>
+    </div>
+
+    <small class="text-muted" style="font-size: 0.75rem;">
+      {{ chat.lastActivity | date:'shortTime' }}
+    </small>
+
+  </button>
+
+  <div *ngIf="conversations.length === 0" class="p-3 text-center text-muted">
+    No chats yet.
+  </div>
+</div>
