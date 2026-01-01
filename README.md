@@ -12,7 +12,7 @@ A full-stack real-time messaging application built with **Angular** and **ASP.NE
 ## 🛠️ Tech Stack
 
 **Frontend:**
-* Angular (v17+)
+* Angular (v19+)
 * Bootstrap (for styling)
 * RxJS (State management)
 
@@ -27,31 +27,21 @@ A full-stack real-time messaging application built with **Angular** and **ASP.NE
 
 Before running the project, make sure you have the following installed:
 
+* **Visual Studio 2026:** (Ensure "ASP.NET and web development" workload is installed)
 * **Node.js** (Recommended: Use `nvm` to manage versions)
 * **Angular CLI:** `npm install -g @angular/cli`
-* **.NET SDK:** (Download from Microsoft)
 
 ---
 
 ## 🏃‍♂️ How to Run
 
-### 1. Backend Setup (ASP.NET Core)
-1.  Navigate to the backend folder:
-    ```bash
-    cd ChatApp.API
-    ```
-2.  Restore dependencies:
-    ```bash
-    dotnet restore
-    ```
-3.  Run the application:
-    ```bash
-    dotnet run
-    ```
+### 1. Backend Setup (Visual Studio 2026)
+1.  Open the `ChatApp.sln` file in **Visual Studio 2026**.
+2.  Press **F5** (or click the green Play button) to build and run the backend.
     > The API will start on `https://localhost:7042` (or similar).
 
 ### 2. Frontend Setup (Angular)
-1.  Navigate to the frontend folder:
+1.  Open a terminal (or VS Code) in the frontend folder:
     ```bash
     cd ChatApp.Client
     ```
@@ -69,8 +59,8 @@ Before running the project, make sure you have the following installed:
 
 ## 📂 Configuration Notes
 
-* **CORS:** The backend is configured to allow requests from `http://localhost:4200`. If you change the frontend port, update `Program.cs` in the backend.
-* **File Storage:** Uploaded images are stored in the `wwwroot/Uploads` folder in the backend directory. Ensure this folder exists.
+* **CORS:** The backend is configured to allow requests from `http://localhost:4200`.
+* **File Storage:** Uploaded images are stored in the `wwwroot/Uploads` folder in the backend directory.
 
 ---
 **Happy Coding!** 🚀
