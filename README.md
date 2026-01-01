@@ -12,7 +12,7 @@ A full-stack real-time messaging application built with **Angular** and **ASP.NE
 ## 🛠️ Tech Stack
 
 **Frontend:**
-* Angular (v19+)
+* Angular (v17+)
 * Bootstrap (for styling)
 * RxJS (State management)
 
